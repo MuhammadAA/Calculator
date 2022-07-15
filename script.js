@@ -1,5 +1,9 @@
+var numberOne;
+var numberTwo;
+
+// Calculator Functions 
 function add (numOne, numTwo) {
-    return numOne + numTwo;
+    return parseInt(numOne) + parseInt(numTwo);
 }
 
 function sub (numOne, numTwo) {
@@ -17,3 +21,133 @@ function divide (numOne, numTwo){
 function negate (num){
     return num * -1;
 }
+
+function equate (num1,num2,operator){
+    if(operator == "+"){
+        return add(num1, num2);
+    }
+    else if (operator == "-"){
+        return sub(num1, num2);
+    }
+    else if (operator == "*"){
+        return multiply(num1, num2);
+    }
+    else if (operator == "/"){
+        return divide(num1, num2);
+    }
+}
+
+// Display
+var inputed = "";
+const dispText = document.getElementById("dispText");
+dispText.textContent = inputed;
+
+
+// Number Buttons 
+const zeroBtn = document.getElementById("zero");
+zeroBtn.onclick = function(){
+    inputed+=0;
+    dispText.textContent = inputed;
+};
+const oneBtn = document.getElementById("one");
+oneBtn.onclick = function(){
+    inputed+=1;
+    dispText.textContent = inputed;
+};
+const twoBtn = document.getElementById("two");
+twoBtn.onclick = function(){
+    inputed+=2;
+    dispText.textContent = inputed;
+};
+const threeBtn = document.getElementById("three");
+threeBtn.onclick = function(){
+    inputed+=3;
+    dispText.textContent = inputed;
+};
+const fourBtn = document.getElementById("four");
+fourBtn.onclick = function(){
+    inputed+=4;
+    dispText.textContent = inputed;
+};
+const fiveBtn = document.getElementById("five");
+fiveBtn.onclick = function(){
+    inputed+=5;
+    dispText.textContent = inputed;
+};
+const sixBtn = document.getElementById("six");
+sixBtn.onclick = function(){
+    inputed+=6;
+    dispText.textContent = inputed;
+};
+const sevenBtn = document.getElementById("seven");
+sevenBtn.onclick = function(){
+    inputed+=7;
+    dispText.textContent = inputed;
+};
+const eightBtn = document.getElementById("eight");
+eightBtn.onclick = function(){
+    inputed+=8;
+    dispText.textContent = inputed;
+};
+const nineBtn = document.getElementById("nine");
+nineBtn.onclick = function(){
+    inputed+=9;
+    dispText.textContent = inputed;
+};
+
+
+
+
+// Function Buttons
+clearBtn = document.getElementById("clear");
+clearBtn.onclick = function(){
+    inputed = '';
+    dispText.textContent = inputed;
+    numberOne = null;
+    numberTwo = null;
+};
+negateBtn = document.getElementById("negate");
+negateBtn.onclick = function(){
+    if (inputed[0] == "-"){
+        inputed = inputed.substring(1);
+    }
+    else {
+        inputed = "-"+inputed;
+    }
+    dispText.textContent = inputed;
+};
+decimalBtn = document.getElementById("decimal");
+decimalBtn.onclick = function(){
+    if (inputed.includes(".") == false) {
+        inputed+=".";
+    }
+    dispText.textContent = inputed;
+};
+
+
+
+
+// WORK IN PROGRESS
+addBtn = document.getElementById("add");
+addBtn.onclick = function(){
+    if(numberOne == null){
+        numberOne = inputed;
+        //dispText.textContent = inputed;
+        console.log("case1");
+    }
+    else if (numberOne!= null && numberTwo==null){
+        console.log("case2")
+        numberTwo = inputed;
+        result = equate(numberOne,numberTwo,"+");
+        dispText.textContent = result;
+        numberOne = result;
+        numberTwo = null;
+        inputed='';
+        console.log(result)
+    }
+    else if(numberOne!=null && numberTwo!=null){
+        console.log("case3")
+    }
+        
+        
+    }

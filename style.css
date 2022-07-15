@@ -29,8 +29,18 @@ h1{
     display: block;
     height: 100%;
     width: 100%;
+    max-width: 450px;
     background-color: #EDF6F9;
     box-sizing: content-box;
+
+
+    word-wrap: break-word;
+    word-break: break-all;
+    font-size: 50px;
+    font-weight: 800;
+    color: black;
+    text-align: calc(-55);
+
 }
 #buttons {
     display: grid;
@@ -103,3 +113,20 @@ h1{
     background-color: #014e53;
 }
 
+
+.dispText {
+    word-wrap: break-word;
+    word-break: break-all;
+
+    margin-left: -12px;
+    /*margin-right: auto;*/
+    text-align: right;
+
+    width: 450px;
+    height: 100%;
+
+    font-size: 50px;
+    font-weight: 800;
+    color: black;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
