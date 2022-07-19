@@ -34,81 +34,50 @@ function equate (num1,num2,operator){
     }
 }
 
-// Display
-var inputed = "";
-const dispText = document.getElementById("dispText");
-dispText.textContent = inputed;
 
 
-// Number Buttons 
-const zeroBtn = document.getElementById("zero");
-zeroBtn.onclick = function(){
+// Inputs 
+function zeroInp (){
     inputed+=0;
     dispText.textContent = inputed;
-};
-const oneBtn = document.getElementById("one");
-oneBtn.onclick = function(){
+}
+function oneInp (){
     inputed+=1;
     dispText.textContent = inputed;
-};
-const twoBtn = document.getElementById("two");
-twoBtn.onclick = function(){
+}
+function twoInp (){
     inputed+=2;
     dispText.textContent = inputed;
-};
-const threeBtn = document.getElementById("three");
-threeBtn.onclick = function(){
+}
+function threeInp (){
     inputed+=3;
     dispText.textContent = inputed;
-};
-const fourBtn = document.getElementById("four");
-fourBtn.onclick = function(){
+}
+function fourInp (){
     inputed+=4;
     dispText.textContent = inputed;
-};
-const fiveBtn = document.getElementById("five");
-fiveBtn.onclick = function(){
+}
+function fiveInp (){
     inputed+=5;
     dispText.textContent = inputed;
-};
-const sixBtn = document.getElementById("six");
-sixBtn.onclick = function(){
+}
+function sixInp (){
     inputed+=6;
     dispText.textContent = inputed;
-};
-const sevenBtn = document.getElementById("seven");
-sevenBtn.onclick = function(){
+}
+function sevenInp (){
     inputed+=7;
     dispText.textContent = inputed;
-};
-const eightBtn = document.getElementById("eight");
-eightBtn.onclick = function(){
+}
+function eightInp (){
     inputed+=8;
     dispText.textContent = inputed;
-};
-const nineBtn = document.getElementById("nine");
-nineBtn.onclick = function(){
+}
+function nineInp (){
     inputed+=9;
     dispText.textContent = inputed;
-};
-
-
-// Operation Set Up
-var numberOne = null;
-var numberTwo = null;
-var func = null;
-
-
-// Function Buttons
-clearBtn = document.getElementById("clear");
-clearBtn.onclick = function(){
-    inputed = '';
-    dispText.textContent = inputed;
-    numberOne = null;
-    numberTwo = null;
-};
-negateBtn = document.getElementById("negate");
-negateBtn.onclick = function(){
+}
+function negateInp (){
     if (inputed[0] == "-"){
         inputed = inputed.substring(1);
     }
@@ -116,21 +85,14 @@ negateBtn.onclick = function(){
         inputed = "-"+inputed;
     }
     dispText.textContent = inputed;
-};
-decimalBtn = document.getElementById("decimal");
-decimalBtn.onclick = function(){
+}
+function decimalInp (){
     if (inputed.includes(".") == false) {
         inputed+=".";
     }
     dispText.textContent = inputed;
-};
-
-
-
-
-// WORK IN PROGRESS
-equalsBtn = document.getElementById("equals");
-equalsBtn.onclick = function(){
+}
+function equalsInp (){
     if(numberTwo == null){
         numberTwo = parseFloat(inputed);
         result = equate(numberOne,numberTwo,func);
@@ -146,18 +108,8 @@ equalsBtn.onclick = function(){
         inputed = '';
         dispText.textContent = result;
     }
-    //numberTwo = parseFloat(inputed);
-    //result = equate(numberOne,numberTwo,func);
-    //dispText.textContent = result;
-    //inputed = '';
-    //numberOne = result;
-    //numberTwo = null;
-    //func = null;
-};
-
-addBtn = document.getElementById("add");
-addBtn.onclick = function(){
-
+}
+function addInp (){
     if (func != null && func != "+"){
         numberTwo = parseFloat(inputed);
         result = equate(numberOne,numberTwo,func);
@@ -182,38 +134,8 @@ addBtn.onclick = function(){
         func = "+";
         inputed = '';
     }
-
-
-    //if (func != "+"){
-      //numberTwo = parseFloat(inputed);
-      //inputed = "";
-      //result = equate(numberOne,numberTwo,func);
-      //dispText.textContent = result;
-       // numberOne = result;
-        //numberTwo = null;
-        //func = "+";
-    //}
-    //if (numberOne == null && numberTwo == null){
-      //  numberOne = parseFloat(inputed);
-        //inputed = "";
-        //func = "+";
-   // }
-    //else if (numberOne != null && numberTwo == null){
-        
-      //  func = "+";
-       // numberTwo = parseFloat(inputed);
-        //inputed = "";
-        //result = equate(numberOne,numberTwo,func);
-        //dispText.textContent = result;
-        //numberOne = result;
-        //numberTwo = null;
-        //func = null;
-    //}
-};
-
-subtractBtn = document.getElementById("subtract");
-subtractBtn.onclick = function(){
-    
+}
+function subtractInp() {
     if (func != null && func != "-"){
         numberTwo = parseFloat(inputed);
         result = equate(numberOne,numberTwo,func);
@@ -238,10 +160,8 @@ subtractBtn.onclick = function(){
         func = "-";
         inputed = '';
     }
-};
-
-multiplyBtn = document.getElementById("multiply");
-multiplyBtn.onclick = function(){
+}
+function multiplyInp() {
     if (func != null && func != "*"){
         numberTwo = parseFloat(inputed);
         result = equate(numberOne,numberTwo,func);
@@ -267,9 +187,7 @@ multiplyBtn.onclick = function(){
         inputed = '';
     }
 }
-
-divideBtn = document.getElementById("divide");
-divideBtn.onclick = function(){
+function divideInp() {
     if (func != null && func != "/"){
         numberTwo = parseFloat(inputed);
         result = equate(numberOne,numberTwo,func);
@@ -295,3 +213,169 @@ divideBtn.onclick = function(){
         inputed = '';
     }
 }
+function clearInp(){
+    inputed = '';
+    dispText.textContent = inputed;
+    numberOne = null;
+    numberTwo = null;
+}
+
+
+// Display
+var inputed = "";
+const dispText = document.getElementById("dispText");
+dispText.textContent = inputed;
+
+
+
+
+
+
+
+// Number Buttons 
+const zeroBtn = document.getElementById("zero");
+zeroBtn.onclick = function(){
+    zeroInp();
+};
+const oneBtn = document.getElementById("one");
+oneBtn.onclick = function(){
+    oneInp();
+};
+const twoBtn = document.getElementById("two");
+twoBtn.onclick = function(){
+    twoInp();
+};
+const threeBtn = document.getElementById("three");
+threeBtn.onclick = function(){
+    threeInp();
+};
+const fourBtn = document.getElementById("four");
+fourBtn.onclick = function(){
+    fourInp();
+};
+const fiveBtn = document.getElementById("five");
+fiveBtn.onclick = function(){
+    fiveInp();
+};
+const sixBtn = document.getElementById("six");
+sixBtn.onclick = function(){
+    sixInp();
+};
+const sevenBtn = document.getElementById("seven");
+sevenBtn.onclick = function(){
+    sevenInp();
+};
+const eightBtn = document.getElementById("eight");
+eightBtn.onclick = function(){
+    eightInp();
+};
+const nineBtn = document.getElementById("nine");
+nineBtn.onclick = function(){
+    nineInp();
+};
+
+
+// Operation Set Up
+var numberOne = null;
+var numberTwo = null;
+var func = null;
+
+
+// Function Buttons
+clearBtn = document.getElementById("clear");
+clearBtn.onclick = function(){
+    clearInp();
+};
+negateBtn = document.getElementById("negate");
+negateBtn.onclick = function(){
+    negateInp();
+};
+decimalBtn = document.getElementById("decimal");
+decimalBtn.onclick = function(){
+    decimalInp();
+};
+equalsBtn = document.getElementById("equals");
+equalsBtn.onclick = function(){
+    equalsInp();
+};
+addBtn = document.getElementById("add");
+addBtn.onclick = function(){
+    addInp();
+};
+subtractBtn = document.getElementById("subtract");
+subtractBtn.onclick = function(){
+    subtractInp();
+};
+multiplyBtn = document.getElementById("multiply");
+multiplyBtn.onclick = function(){
+    multiplyInp();
+}
+divideBtn = document.getElementById("divide");
+divideBtn.onclick = function(){
+    divideInp();
+}
+
+
+// Keyboard Support
+document.addEventListener("keydown", function(event){
+    console.log(event.key);
+    if (event.key == 0){
+        zeroInp();
+    }
+    if (event.key == 1){
+        oneInp();
+    }
+    if (event.key == 2){
+        twoInp();
+    }
+    if (event.key == 3){
+        threeInp();
+    }
+    if (event.key == 4){
+        fourInp();
+    }
+    if (event.key == 5){
+        fiveInp();
+    }
+    if (event.key == 6){
+        sixInp();
+    }
+    if (event.key == 7){
+        sevenInp();
+    }
+    if (event.key == 8){
+        eightInp();
+    }
+    if (event.key == 9){
+        nineInp();
+    }
+    if (event.key === "Backspace"){
+        inputed = inputed.slice(0,-1);
+        dispText.textContent = inputed;
+    }
+    if (event.key == "-"){
+        negateInp();
+    }
+    if (event.key == "."){
+        decimalInp();
+    }
+    if (event.key === "Enter" || event.key == "="){
+        equalsInp();
+    }
+    if (event.key == "+") {
+        addInp();
+    }
+    if (event.key == "s") {
+        subtractInp();
+    }
+    if (event.key == "*" || event.key == "x"){
+        multiplyInp();
+    }
+    if (event.key == "/") {
+        divideInp();
+    }
+    if (event.key == "c"){
+        clearInp();
+    }
+});
+
