@@ -2,19 +2,15 @@
 function add (numOne, numTwo) {
     return parseFloat(numOne) + parseFloat(numTwo);
 }
-
 function sub (numOne, numTwo) {
     return numOne - numTwo;
 }
-
 function multiply (numOne, numTwo){
     return numOne * numTwo;
 }
-
 function divide (numOne, numTwo){
     return numOne / numTwo;
 }
-
 function negate (num){
     return num * -1;
 }
@@ -318,7 +314,6 @@ divideBtn.onclick = function(){
 
 // Keyboard Support
 document.addEventListener("keydown", function(event){
-    console.log(event.key);
     if (event.key == 0){
         zeroInp();
     }
