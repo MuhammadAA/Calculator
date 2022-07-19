@@ -1,9 +1,6 @@
-var numberOne;
-var numberTwo;
-
 // Calculator Functions 
 function add (numOne, numTwo) {
-    return parseInt(numOne) + parseInt(numTwo);
+    return parseFloat(numOne) + parseFloat(numTwo);
 }
 
 function sub (numOne, numTwo) {
@@ -96,6 +93,10 @@ nineBtn.onclick = function(){
 };
 
 
+// Operation Set Up
+var numberOne = null;
+var numberTwo = null;
+var func = null;
 
 
 // Function Buttons
@@ -128,26 +129,169 @@ decimalBtn.onclick = function(){
 
 
 // WORK IN PROGRESS
+equalsBtn = document.getElementById("equals");
+equalsBtn.onclick = function(){
+    if(numberTwo == null){
+        numberTwo = parseFloat(inputed);
+        result = equate(numberOne,numberTwo,func);
+        numberOne = result;
+
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else {
+        result = equate(numberOne,numberTwo,func);
+        numberOne = result;
+
+        inputed = '';
+        dispText.textContent = result;
+    }
+    //numberTwo = parseFloat(inputed);
+    //result = equate(numberOne,numberTwo,func);
+    //dispText.textContent = result;
+    //inputed = '';
+    //numberOne = result;
+    //numberTwo = null;
+    //func = null;
+};
+
 addBtn = document.getElementById("add");
 addBtn.onclick = function(){
-    if(numberOne == null){
-        numberOne = inputed;
-        //dispText.textContent = inputed;
-        console.log("case1");
-    }
-    else if (numberOne!= null && numberTwo==null){
-        console.log("case2")
-        numberTwo = inputed;
-        result = equate(numberOne,numberTwo,"+");
-        dispText.textContent = result;
+
+    if (func != null && func != "+"){
+        numberTwo = parseFloat(inputed);
+        result = equate(numberOne,numberTwo,func);
         numberOne = result;
         numberTwo = null;
-        inputed='';
-        console.log(result)
+        func = "+"
+
+        inputed = '';
+        dispText.textContent = result;
     }
-    else if(numberOne!=null && numberTwo!=null){
-        console.log("case3")
-    }
+    else if (numberOne != null && func == "+"){
+        numTwo = parseFloat(inputed);
+        func = "+"
+        result = equate(numberOne,numberTwo,func);
+        numberTwo = null;
         
-        
+        inputed = '';
+        dispText.textContent = result;
     }
+    else if(numberOne == null){
+        numberOne = parseFloat(inputed);
+        func = "+";
+        inputed = '';
+    }
+
+
+    //if (func != "+"){
+      //numberTwo = parseFloat(inputed);
+      //inputed = "";
+      //result = equate(numberOne,numberTwo,func);
+      //dispText.textContent = result;
+       // numberOne = result;
+        //numberTwo = null;
+        //func = "+";
+    //}
+    //if (numberOne == null && numberTwo == null){
+      //  numberOne = parseFloat(inputed);
+        //inputed = "";
+        //func = "+";
+   // }
+    //else if (numberOne != null && numberTwo == null){
+        
+      //  func = "+";
+       // numberTwo = parseFloat(inputed);
+        //inputed = "";
+        //result = equate(numberOne,numberTwo,func);
+        //dispText.textContent = result;
+        //numberOne = result;
+        //numberTwo = null;
+        //func = null;
+    //}
+};
+
+subtractBtn = document.getElementById("subtract");
+subtractBtn.onclick = function(){
+    
+    if (func != null && func != "-"){
+        numberTwo = parseFloat(inputed);
+        result = equate(numberOne,numberTwo,func);
+        numberOne = result;
+        numberTwo = null;
+        func = "-"
+
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if (numberOne != null && func == "-"){
+        numTwo = parseFloat(inputed);
+        func = "-"
+        result = equate(numberOne,numberTwo,func);
+        numberTwo = null;
+        
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if(numberOne == null){
+        numberOne = parseFloat(inputed);
+        func = "-";
+        inputed = '';
+    }
+};
+
+multiplyBtn = document.getElementById("multiply");
+multiplyBtn.onclick = function(){
+    if (func != null && func != "*"){
+        numberTwo = parseFloat(inputed);
+        result = equate(numberOne,numberTwo,func);
+        numberOne = result;
+        numberTwo = null;
+        func = "*"
+
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if (numberOne != null && func == "*"){
+        numTwo = parseFloat(inputed);
+        func = "*"
+        result = equate(numberOne,numberTwo,func);
+        numberTwo = null;
+        
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if(numberOne == null){
+        numberOne = parseFloat(inputed);
+        func = "*";
+        inputed = '';
+    }
+}
+
+divideBtn = document.getElementById("divide");
+divideBtn.onclick = function(){
+    if (func != null && func != "/"){
+        numberTwo = parseFloat(inputed);
+        result = equate(numberOne,numberTwo,func);
+        numberOne = result;
+        numberTwo = null;
+        func = "/"
+
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if (numberOne != null && func == "/"){
+        numTwo = parseFloat(inputed);
+        func = "/"
+        result = equate(numberOne,numberTwo,func);
+        numberTwo = null;
+        
+        inputed = '';
+        dispText.textContent = result;
+    }
+    else if(numberOne == null){
+        numberOne = parseFloat(inputed);
+        func = "/";
+        inputed = '';
+    }
+}
